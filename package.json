@@ -12,7 +12,8 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "style-dictionary": "^4.1.4"
+    "style-dictionary": "^4.1.4",
+    "token-transformer": "^0.0.33"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
