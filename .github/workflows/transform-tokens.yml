@@ -38,7 +38,7 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Run transform script
-        run: node transformToken.js
+        run: node ./src/assets/tokens/transformToken.js
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
