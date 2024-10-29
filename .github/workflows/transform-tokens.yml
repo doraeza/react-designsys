@@ -29,16 +29,23 @@ jobs:
       - name: Run Token Transformer
         run: |
             node ./src/assets/tokens/transformToken.js
-            git config --global user.name "doraeza"
-            git config --global user.email "pp8960@naver.com"
-            git add .
-            git commit -m 'Figma updated styles'
-            git push
+            
         env:
             GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: Run transform script
-        run: node ./src/assets/tokens/transformToken.js
+      - name: Check for changes
+        run: |
+          if git diff --exit-code; then
+            echo "No changes detected";
+            exit 0;
+          fi
+
+      - name: Commit changes
+        run: |
+          git add .
+          git commit -m 'Figma updated styles'
+          git push
+
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
