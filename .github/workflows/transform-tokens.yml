@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Token Transformer
         run: |
-            npx token-transformer ./src/assets/tokens/tokens.json ./src/style/global.json core
+            node ./src/assets/tokens/transformToken.js
             git config --global user.name "doraeza"
             git config --global user.email "pp8960@naver.com"
             git add .
