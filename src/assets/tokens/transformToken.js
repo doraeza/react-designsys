@@ -1,26 +1,19 @@
-const fs = require('fs');
-const path = require('path');
+import StyleDictionary from 'style-dictionary';
 
-// 빌드 경로가 없으면 생성
-const buildPath = path.join(__dirname, 'build/scss');
-if (!fs.existsSync(buildPath)) {
-    fs.mkdirSync(buildPath, { recursive: true });
-}
-
-const StyleDictionary = require('style-dictionary').extend({
-    source: ['./src/assets/tokens/tokens.json'],
-    platforms: {
-        scss: {
-            transformGroup: 'scss',
-            buildPath: 'build/scss',
-            files: [
-                {
-                    destination: '_variables.scss',
-                    format: 'scss/variables',
-                },
-            ],
+const styleDictionary = StyleDictionary.extend({
+  source: ['./src/assets/tokens/global.json'],
+  platforms: {
+    scss: {
+      transformGroup: 'scss',
+      buildPath: 'build/scss/',
+      files: [
+        {
+          destination: '_variables.scss',
+          format: 'scss/variables',
         },
-    }
+      ],
+    },
+  },
 });
 
-StyleDictionary.buildAllPlatforms();
+styleDictionary.buildAllPlatforms();
