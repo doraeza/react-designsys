@@ -1,5 +1,5 @@
 const StyleDictionary = require('style-dictionary').extend({
-    source: ['./tokens/tokens.json'],
+    source: ['./src/assets/tokens/tokens.json'],
     platforms: {
         scss: {
             transformGroup: 'scss',
@@ -12,6 +12,6 @@ const StyleDictionary = require('style-dictionary').extend({
             ],
         },
     }
-})
+});
 
 StyleDictionary.buildAllPlatforms();
