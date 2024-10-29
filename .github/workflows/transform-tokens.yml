@@ -26,8 +26,8 @@ jobs:
       - name: Run Token Transformer
         run: |
             npx token-transformer tokens.json ./src/style/global.json core
-            git config --global user.name "사용자"
-            git config --global user.email "이메일"
+            git config --global user.name "doraeza"
+            git config --global user.email "pp8960@naver.com"
             git add .
             git commit -m 'Figma updated styles'
             git push
