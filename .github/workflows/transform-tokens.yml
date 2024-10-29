@@ -42,6 +42,8 @@ jobs:
 
       - name: Commit changes
         run: |
+          git config --global user.name "doraeza"
+          git config --global user.email "pp8960@naver.com"
           git add .
           git commit -m 'Figma updated styles'
           git push
