@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - tokens.json
+      - src/assets/tokens/tokens.json
 
 jobs:
   transform-tokens:
