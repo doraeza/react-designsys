@@ -23,9 +23,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install token-transformer
+        run: npm install token-transformer
+
       - name: Run Token Transformer
         run: |
-            npx token-transformer tokens.json ./src/style/global.json core
+            npx token-transformer ./src/assets/tokens/tokens.json ./src/style/global.json core
             git config --global user.name "doraeza"
             git config --global user.email "pp8960@naver.com"
             git add .
