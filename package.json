@@ -13,6 +13,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "style-dictionary": "^4.1.4",
+    "theo": "^8.1.5",
     "token-transformer": "^0.0.33"
   },
   "devDependencies": {
