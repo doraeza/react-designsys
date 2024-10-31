@@ -28,10 +28,7 @@ jobs:
 
       - name: Run Token Transformer
         run: |
-            node ./src/assets/tokens/transformToken.cjs
-            
-        env:
-            GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          node ./src/assets/tokens/transformToken.cjs
 
       - name: Check for changes
         run: |
@@ -46,13 +43,18 @@ jobs:
           git config --global user.email "pp8960@naver.com"
           git add .
           git commit -m 'Figma updated styles'
-          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub Actions 기본 토큰 사용
 
+      - name: Push changes
+        run: git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }} # GitHub Actions 기본 토큰 사용
           commit-message: Transform tokens and update styles
           branch: transform-tokens-branch
           title: "Transform tokens and update styles"
