@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Token Transformer
         run: |
-            node ./src/assets/tokens/transformToken.js
+            node ./src/assets/tokens/transformToken.cjs
             
         env:
             GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
