@@ -26,6 +26,16 @@ jobs:
       - name: Install token-transformer
         run: npm install token-transformer
 
+      - name: Install style-dictionary
+        run: npm install style-dictionary@3.8.0
+
+      - name: Run Token Separator
+        run: |
+            node ./src/assets/tokens/separateJson.cjs
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token
+ 
+
       - name: Run Token Transformer
         run: |
           node ./src/assets/tokens/transformToken.cjs
